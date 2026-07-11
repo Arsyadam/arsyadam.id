@@ -1,12 +1,14 @@
+import { SITE_URL } from "./lib/profile-data";
+
 export default function robots() {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/llms.txt", "/llms-full.txt"],
         disallow: "/api/",
       },
     ],
-    sitemap: "https://arsyadam.id/sitemap.xml",
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

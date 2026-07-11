@@ -1,13 +1,13 @@
 import { Metadata } from "next";
+import { PERSON } from "../lib/profile-data";
 
 export const metadata: Metadata = {
-  title: "Contact - Hubungi Arsyad Ali Mahardika",
-  description:
-    "Hubungi Arsyad Ali Mahardika untuk kolaborasi proyek AI, Machine Learning, IoT, atau konsultasi teknologi. Email, LinkedIn, dan media sosial tersedia.",
+  title: "Contact",
+  description: `Contact ${PERSON.name} for AI in public transport, smart mobility, machine learning, and software engineering collaborations. Email and social links available.`,
   openGraph: {
-    title: "Contact - Arsyad Ali Mahardika",
+    title: `Contact - ${PERSON.name}`,
     description:
-      "Hubungi untuk kolaborasi proyek AI, Machine Learning, IoT, atau konsultasi teknologi.",
+      "Get in touch for AI, public transportation technology, and software engineering collaborations.",
     type: "website",
   },
 };

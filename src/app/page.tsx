@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import TimelineList from "./components/home/TimelineList";
 import { Metadata } from "next";
@@ -7,25 +8,21 @@ import CtaSection from "./components/home/CtaSection";
 import TransitMapBackground from "./components/home/transit/TransitMapBackground";
 import HomeShowcaseSection from "./components/home/HomeShowcaseSection";
 import HomePerspectivesSection from "./components/home/HomePerspectivesSection";
-import AchievementCard, {
-  driveCertificateThumbnail,
-  type AchievementItem,
-} from "./components/home/AchievementCard";
+import CertificateCard from "./certificates/components/CertificateCard";
 import { getBlogPosts } from "./blog/utils";
 import { getAllProjects } from "./showcase/lib/showcase";
 import { pickFeaturedProjects } from "./showcase/lib/project-order";
 import { linkLabel } from "./lib/link-label";
+import { getAllCertificates } from "./lib/certificates-data";
+import { PERSON, SITE_URL } from "./lib/profile-data";
 
 export const metadata: Metadata = {
-  title:
-    "Arsyad Ali Mahardika - AI Engineer & Machine Learning Specialist | SMK Telkom Malang",
-  description:
-    "Portfolio Arsyad Ali Mahardika (Arsyadam), AI Engineer dari SMK Telkom Malang. Juara FIKSI Puspresnas, General Manager Metic Merch. Keahlian: AI, Machine Learning, Computer Vision, Data Science, Web Development.",
+  title: `${PERSON.name} - AI Engineer | Public Transport & Smart Mobility AI`,
+  description: PERSON.headline,
   openGraph: {
-    title: "Arsyad Ali Mahardika - AI Engineer | SMK Telkom Malang",
-    description:
-      "Portfolio AI Engineer & Machine Learning Specialist. Juara FIKSI Puspresnas, General Manager Metic Merch.",
-    url: "https://arsyadam.id",
+    title: `${PERSON.name} - AI Engineer | AI in Public Transport`,
+    description: PERSON.headline,
+    url: SITE_URL,
     type: "profile",
   },
 };
@@ -88,110 +85,7 @@ const experienceItems = [
   },
 ];
 
-const achievements: AchievementItem[] = [
-  {
-    organization: "Puspresnas",
-    title: "1st Gold Medal - FIKSI Teknologi Digital",
-    subtitle:
-      "National innovation competition focused on creating digital technology solutions for real-world problems.",
-    certificateLink:
-      "https://drive.google.com/file/d/1-0JLawWPEafudhWz18h5sNnVAPLSDYjG/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/1-0JLawWPEafudhWz18h5sNnVAPLSDYjG/view?usp=drive_link"
-    ),
-    gradient: "from-red-50/50 to-transparent",
-  },
-  {
-    organization: "SMK Telkom Malang",
-    title: "Best Academic & Non-Academic Student",
-    subtitle:
-      "Recognized as the best student in both academic and non-academic categories at SMK Telkom Malang, combining academic excellence with leadership and extracurricular impact.",
-    certificateLink: "#",
-    certificateImage: null,
-    gradient: "from-rose-50/50 to-transparent",
-  },
-  {
-    organization: "Puspresnas & Dinas Pendidikan Jatim",
-    title: "1st Place - LKS Artificial Intelligence",
-    subtitle:
-      "National vocational school AI competition testing machine learning, computer vision, and problem-solving skills.",
-    certificateLink:
-      "https://drive.google.com/file/d/1NKivuheEOHrlkUGcxfmcKQruVNgqMxV3/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/1NKivuheEOHrlkUGcxfmcKQruVNgqMxV3/view?usp=drive_link"
-    ),
-    gradient: "from-purple-50/50 to-transparent",
-  },
-  {
-    organization: "Mage ITS",
-    title: "1st Place - IoT Competition",
-    subtitle:
-      "Technology and engineering competition by ITS, focusing on developing IoT-based industrial solutions.",
-    certificateLink:
-      "https://drive.google.com/file/d/1-qLxDfabJoLoemI_TE52bMLhmEImWm62/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/1-qLxDfabJoLoemI_TE52bMLhmEImWm62/view?usp=drive_link"
-    ),
-    gradient: "from-blue-50/50 to-transparent",
-  },
-  {
-    organization: "BSN",
-    title: "1st Runner Up - Kompetisi Standardisasi Nasional (KSN)",
-    subtitle:
-      "National competition by Indonesia's Standardization Agency, promoting innovation aligned with industry standards.",
-    certificateLink:
-      "https://drive.google.com/file/d/1phQxQ5REzsWvjTPXxqKn7_4DtSJt28U8/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/1phQxQ5REzsWvjTPXxqKn7_4DtSJt28U8/view?usp=drive_link"
-    ),
-    gradient: "from-amber-50/50 to-transparent",
-  },
-  {
-    organization: "Kemenkeu",
-    title: "3rd Place - Visual Data Competition",
-    subtitle:
-      "Data visualization competition by the Indonesian Ministry of Finance, tackling social issues like climate change.",
-    certificateLink:
-      "https://drive.google.com/file/d/1-QjYElyXZDDp7-fdP5A48xFvvdFuBRmq/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/1-QjYElyXZDDp7-fdP5A48xFvvdFuBRmq/view?usp=drive_link"
-    ),
-    gradient: "from-green-50/50 to-transparent",
-  },
-  {
-    organization: "Sampoerna Academy",
-    title: "3rd Place - STEAM Competition",
-    subtitle:
-      "Multidisciplinary competition combining Science, Technology, Engineering, Arts, and Mathematics for innovative solutions.",
-    certificateLink:
-      "https://drive.google.com/file/d/104Gj8-95XiGqGmJyTKsojSqsNpPlYmyu/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/104Gj8-95XiGqGmJyTKsojSqsNpPlYmyu/view?usp=drive_link"
-    ),
-    gradient: "from-teal-50/50 to-transparent",
-  },
-  {
-    organization: "Junior Achievement",
-    title: "Top 10 Finalist - FedEx International Trade Challenge",
-    subtitle:
-      "Global competition promoting innovative international trade strategies among young entrepreneurs.",
-    certificateLink:
-      "https://drive.google.com/file/d/10EbarSaYREOMJQr10LEBPBMI879GvamG/view?usp=drive_link",
-    certificateImage: driveCertificateThumbnail(
-      "https://drive.google.com/file/d/10EbarSaYREOMJQr10LEBPBMI879GvamG/view?usp=drive_link"
-    ),
-    gradient: "from-indigo-50/50 to-transparent",
-  },
-  {
-    organization: "Samsung",
-    title: "Semifinalist - Solve for Tomorrow (SFT)",
-    subtitle:
-      "Samsung's global competition empowering students to solve community challenges using STEM innovation.",
-    certificateLink: "#",
-    certificateImage: null,
-    gradient: "from-neutral-50/40 to-transparent",
-  },
-];
+const achievements = getAllCertificates();
 
 export default async function Home() {
   const [allPosts, allProjects] = await Promise.all([
@@ -279,10 +173,17 @@ export default async function Home() {
           />
 
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-            {achievements.map((achievement) => (
-              <AchievementCard key={achievement.title} achievement={achievement} />
+            {achievements.map((certificate) => (
+              <CertificateCard key={certificate.slug} certificate={certificate} />
             ))}
           </div>
+
+          <Link
+            href="/certificates"
+            className="text-sm font-medium text-amber-600 underline transition-colors hover:text-amber-700"
+          >
+            View all certificates
+          </Link>
         </div>
       </section>
 

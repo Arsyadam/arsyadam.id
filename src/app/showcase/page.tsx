@@ -6,15 +6,15 @@ import { Metadata } from "next";
 import { featuredMedia } from "../data/featured-media";
 import PageShell from "../components/PageShell";
 import PageSection from "../components/PageSection";
+import { PERSON } from "../lib/profile-data";
 
 export const metadata: Metadata = {
-  title: "Showcase - Project Portfolio AI & IoT",
-  description:
-    "Portfolio proyek AI, Machine Learning, IoT, dan Web Development oleh Arsyad Ali Mahardika. Termasuk Revive (Juara FIKSI Puspresnas), Moklet.org, dan proyek AI lainnya.",
+  title: "Showcase - AI, Public Transport & Software Projects",
+  description: `Project portfolio by ${PERSON.name}: AI in public transport (TransJakarta TARA), smart mobility, enterprise AI, IoT, and full-stack web development.`,
   openGraph: {
-    title: "Showcase - Project Portfolio Arsyad Ali Mahardika",
+    title: `Showcase - ${PERSON.name}`,
     description:
-      "Portfolio proyek AI, Machine Learning, IoT, dan Web Development. Termasuk proyek pemenang FIKSI Puspresnas.",
+      "AI and software projects including TransJakarta TARA, Revive, Yumindo CRM, and more.",
     type: "website",
   },
 };

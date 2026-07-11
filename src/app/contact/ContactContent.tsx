@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Mail,
-  Phone,
   Send,
   Linkedin,
   Twitter,
@@ -65,21 +64,6 @@ export default function ContactContent() {
                 className="text-[14px] text-neutral-500 transition-colors hover:text-red-600"
               >
                 work@arsyadam.id
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-600">
-              <Phone className="size-4" />
-            </span>
-            <div>
-              <h3 className="text-[14px] font-medium text-neutral-800">Phone</h3>
-              <Link
-                href="tel:+6282245676151"
-                className="text-[14px] text-neutral-500 transition-colors hover:text-red-600"
-              >
-                +62 822 4567 7161
               </Link>
             </div>
           </div>

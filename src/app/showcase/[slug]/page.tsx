@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjectSlugs } from "../lib/showcase";
 import ProjectDetail from "../components/ProjectDetail";
 import PageShell from "../../components/PageShell";
+import { buildProjectJsonLd } from "../../lib/structured-data";
 
 export async function generateStaticParams() {
   const slugs = await getProjectSlugs();
@@ -22,7 +23,7 @@ export async function generateMetadata({
     };
   }
   return {
-    title: `${project.title} | Arsyadam's Portfolio`,
+    title: project.title,
     description: project.description,
     openGraph: {
       title: `${project.title} | Arsyadam's Portfolio`,
@@ -48,8 +49,14 @@ export default async function ProjectDetailPage({
     gif: project.gif || "",
   };
 
+  const projectJsonLd = buildProjectJsonLd(project);
+
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       <ProjectDetail project={showcaseProject} />
     </PageShell>
   );
