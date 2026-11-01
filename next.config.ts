@@ -53,6 +53,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Static ASCII lilies love note (public/han/index.html)
+  async rewrites() {
+    return [
+      { source: "/han", destination: "/han/index.html" },
+      { source: "/han/", destination: "/han/index.html" },
+    ];
+  },
 };
 
 export default nextConfig;
